@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Form</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 40px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 100px;
+      font-weight: 600;
+      width: fit-content;
+    }
+
+    span {
+      display: block;
+    }
+
+    input,
+    textarea {
+      border: 2px solid black;
+      padding: 5px 10px;
+      border-radius: 5px;
+      width: 270px;
+    }
+
+    button {
+      padding: 5px 10px;
+      width: 100%;
+      border-radius: 5px;
+      border: 2px solid black;
+      font-weight: inherit;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form action="submit_form.php" method="post">
+    <h2>Contact Form</h2>
+    <label>
+      <span>Name:</span>
+      <input type="text" name="name" placeholder="eg: Joe" />
+    </label>
+    <label>
+      <span>Email:</span>
+      <input type="email" name="email" placeholder="eg: joe@gmail.com" />
+    </label>
+    <label>
+      <span>Message:</span>
+      <textarea name="message" cols="30" rows="5" placeholder="eg: Hello, Nice to meet you"></textarea>
+    </label>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+
+</html>
