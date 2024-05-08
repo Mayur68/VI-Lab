@@ -1,3 +1,5 @@
+<%@page  import="java.util.ArrayList"%>
+<%@page  import="com.Item"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -7,21 +9,20 @@
     </head>
     <body>
         <h1>Online Shopping</h1>
-       <% 
-          ArrayList<Item> cart;
-          if(request.getSession().getAttribute("cart")==null){
-             cart =new ArrayList<Item>();
-             request.getSession().setAttribute("cart" ,cart);
-            }else{
-            cart=(ArrayList<Item>)request.getSession().getAttribute("cart");
-            
-            }
+        <% 
+           ArrayList<Item> cart;
+           if(request.getSession().getAttribute("cart")==null){
+              cart =new ArrayList<Item>();
+              request.getSession().setAttribute("cart" ,cart);
+             }else{
+             cart=(ArrayList<Item>)request.getSession().getAttribute("cart");
+             }
         %>
         <table width="100%">
             <tr>
                 <td>
                     <form method="POST">
-                        <img src="images/Coke.jpg" alt="coke" height="200px"/>
+                        <img src="images/coke.jpg" alt="coke" height="200px"/>
                         <h4>Coke</h4>
                         <input type="hidden"value="Coke"name="name">
                         Price : Rs. 35
@@ -36,7 +37,6 @@
                 <td>
                     <form method="POST">
                         <img src="images/Dew.jpg" alt="Dew" height="200px"/>
-                       
                         <h4>Dew</h4>
                         <input type="hidden"value="Dew"name="name">
                         Price : Rs. 34
@@ -64,7 +64,7 @@
                 </td>
                 <td>
                     <form method="POST">
-                        <img src="images/Thumps Up.jpg" alt="Thumps up"height="200px"/>
+                        <img src="images/Thumps_up.jpg" alt="Thumps up"height="200px"/>
                         <h4>Thumps up</h4>
                         <input type="hidden"value="Thumps up"name="name">
                         Price : Rs. 28
@@ -76,12 +76,9 @@
                         <input type="submit"value="Add"name="addBtn">
                     </form>
                 </td>
-                
-                
             </tr>
-            
         </table>
-        
+
         <% 
            if(request.getParameter("removeBtn")!=null){
              int index=Integer.parseInt(request.getParameter("ino"));
@@ -93,7 +90,6 @@
             int qty=Integer.parseInt(request.getParameter("qty"));
             if(qty<0){
                out.println("<h4 style=\"color: red\"> Please enter a positive value for quantity</h4>");
-
             }else
               {
                 String name=request.getParameter("name");
@@ -115,7 +111,6 @@
             }
            }
         }
-
         %>
         <h2>Cart Details</h2>
         <table border="2">
@@ -130,21 +125,19 @@
             for(int i=0; i<cart.size(); i++) {
                Item item = cart.get(i);
             %>
-
             <tr>
                 <td><%= item.getName() %></td>
                 <td><%= item.getQty() %></td>
                 <td><%= item.getPrice() %></td>
                 <td><%= item.getQty() * item.getPrice() %></td>
                 <td>  
-                     <form method="POST">
-                       <input type="hidden" value="<%= i %>" name="ino">
-                       <input type="submit" value="remove" name="removeBtn">
-                      </form>
+                    <form method="POST">
+                        <input type="hidden" value="<%= i %>" name="ino">
+                        <input type="submit" value="remove" name="removeBtn">
+                    </form>
                 </td>
-              </tr>
-            
+            </tr>
+            <% } %>
         </table>
-        
     </body>
 </html>

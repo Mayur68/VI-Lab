@@ -23,7 +23,8 @@
         "flower" => "the seed-bearing part of a plant, consisting of reproductive organs",
         "music" => "vocal or instrumental sounds combined in such a way as to produce beauty of form, harmony, and expression of emotion",
         "friend" => "a person whom one knows and with whom one has a bond of mutual affection",
-        "dream" => "a series of thoughts, images, and sensations occurring in a person's mind during sleep"
+        "dream" => "a series of thoughts, images, and sensations occurring in a person's mind during sleep",
+        "Jithesh" => "Ak47"
     );
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $search_word = $_POST["word"];
