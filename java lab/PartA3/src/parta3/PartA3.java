@@ -25,6 +25,7 @@ public class PartA3 {
             System.out.println("3. REPLACE AN ELEMENT");
             System.out.println("4. REMOVE AN ELEMENT");
             System.out.println("5. DISPLAY ALL ELEMENT");
+            System.out.println("6. ADD ELEMENTS BETWEEN");
             System.out.println("7. EXIT");
             System.out.println("choose an operation");
 

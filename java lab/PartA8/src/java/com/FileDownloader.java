@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Jithesh Poojary
+ * @author mayur
  */
 @WebServlet(name = "FileDownloader", urlPatterns = {"/FileDownloader"})
 public class FileDownloader extends HttpServlet {
@@ -36,7 +36,7 @@ public class FileDownloader extends HttpServlet {
         response.setContentType("text/plaintext");
         response.setHeader("Content-Disposition", "attachment;filename=\"" + fname + "\"");
         OutputStream os = response.getOutputStream();
-        FileInputStream fis = new FileInputStream("C:\\Users\\Jithesh Poojary\\Desktop\\TableData.txt");
+        FileInputStream fis = new FileInputStream("D:\\TableData.txt");
 
         int i = 0;
         while ((i = fis.read()) != -1) {
