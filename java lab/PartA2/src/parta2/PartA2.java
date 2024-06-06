@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package parta2;
 
@@ -12,26 +13,19 @@ import java.util.*;
  */
 public class PartA2 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        Scanner scr = new Scanner(System.in);
-        System.out.println("Enter the number of elemets");
-        int n = scr.nextInt();
-
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
         List<Integer> numbers = new ArrayList<>();
-
-        System.out.println("Enter the elemets");
+        System.out.println("Enter the elements:");
         for (int i = 0; i < n; i++) {
-            numbers.add(scr.nextInt());
+            numbers.add(scanner.nextInt());
         }
-
         int max = Integer.MIN_VALUE;
         int secondMax = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
         int secondMin = Integer.MAX_VALUE;
-
         for (Integer number : numbers) {
             if (number > max) {
                 secondMax = max;
@@ -39,7 +33,6 @@ public class PartA2 {
             } else if (number > secondMax && number != max) {
                 secondMax = number;
             }
-
             if (number < min) {
                 secondMin = min;
                 min = number;
@@ -47,11 +40,8 @@ public class PartA2 {
                 secondMin = number;
             }
         }
-
         System.out.println("Second Maximum: " + secondMax);
         System.out.println("Second Minimum: " + secondMin);
-
-        scr.close();
+        scanner.close();
     }
-
 }

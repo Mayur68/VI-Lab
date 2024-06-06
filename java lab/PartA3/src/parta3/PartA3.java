@@ -1,10 +1,13 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package parta3;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
 
 /**
  *
@@ -12,101 +15,78 @@ import java.util.*;
  */
 public class PartA3 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         ArrayList<Integer> arrayList = new ArrayList<>();
-        Scanner scr = new Scanner(System.in);
         while (true) {
-            System.out.println("MENU");
-            System.out.println("1. ADD ELEMENT");
-            System.out.println("2. SORT ELEMENT");
-            System.out.println("3. REPLACE AN ELEMENT");
-            System.out.println("4. REMOVE AN ELEMENT");
-            System.out.println("5. DISPLAY ALL ELEMENT");
-            System.out.println("6. ADD ELEMENTS BETWEEN");
-            System.out.println("7. EXIT");
-            System.out.println("choose an operation");
-
-            int choice = scr.nextInt();
-
+            System.out.println("\nMenu:");
+            System.out.println("1. Add elements");
+            System.out.println("2. Sort elements");
+            System.out.println("3. Replace an element with another");
+            System.out.println("4. Remove an element");
+            System.out.println("5. Display all elements");
+            System.out.println("6. Add an element between two elements");
+            System.out.println("7. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    addElement(arrayList, scr);
+                    System.out.print("Enter number of elements to add: ");
+                    int n = scanner.nextInt();
+                    System.out.println("Enter elements:");
+                    for (int i = 0; i < n; i++) {
+                        arrayList.add(scanner.nextInt());
+                    }
                     break;
                 case 2:
-                    sortElement(arrayList, scr);
+                    Collections.sort(arrayList);
+                    System.out.println("Elements sorted successfully.");
                     break;
                 case 3:
-                    replaceElement(arrayList, scr);
+                    System.out.print("Enter the index of the element to replace: ");
+                    int index = scanner.nextInt();
+                    if (index >= 0 && index < arrayList.size()) {
+                        System.out.print("Enter the new element: ");
+                        int newValue = scanner.nextInt();
+                        arrayList.set(index, newValue);
+                        System.out.println("Element replaced successfully.");
+                    } else {
+                        System.out.println("Invalid index.");
+                    }
                     break;
                 case 4:
-                    removeElement(arrayList, scr);
+                    System.out.print("Enter the element to remove: ");
+                    int elementToRemove = scanner.nextInt();
+                    arrayList.remove((Integer) elementToRemove);
+                    System.out.println("Element removed successfully.");
                     break;
                 case 5:
-                    displayElement(arrayList, scr);
+                    System.out.println("Elements in the ArrayList:");
+                    for (int element : arrayList) {
+                        System.out.print(element + " ");
+                    }
+                    System.out.println();
                     break;
                 case 6:
-                    addElementBetween(arrayList, scr);
+                    System.out.print("Enter the index after which to add the element: ");
+                    int addIndex = scanner.nextInt();
+                    if (addIndex >= 0 && addIndex < arrayList.size()) {
+                        System.out.print("Enter the element to add: ");
+                        int newElement = scanner.nextInt();
+                        arrayList.add(addIndex + 1, newElement);
+                        System.out.println("Element added successfully.");
+                    } else {
+                        System.out.println("Invalid index.");
+                    }
                     break;
                 case 7:
-                    System.out.println("Exiting program");
+                    System.out.println("Exiting program...");
                     System.exit(0);
+                    break;
                 default:
-                    System.out.println("Envalid choice!...");
+                    System.out.println("Invalid choice. Please try again.");
             }
         }
-    }
 
-    private static void addElement(ArrayList<Integer> arrayList, Scanner scr) {
-        System.out.println("Enter the number of elements to add: ");
-        int count = scr.nextInt();
-        System.out.println("Enter the element: ");
-        for (int i = 0; i < count; i++) {
-            int element = scr.nextInt();
-            arrayList.add(element);
-        }
-        System.out.println("Element added successfully");
-    }
-
-    private static void sortElement(ArrayList<Integer> arrayList, Scanner scr) {
-
-        Collections.sort(arrayList);
-        System.out.println("Element added successfully");
-    }
-
-    private static void removeElement(ArrayList<Integer> arrayList, Scanner scr) {
-        System.out.println("Enter the elements to remove: ");
-        int element = scr.nextInt();
-        System.out.println("Enter the element: ");
-        arrayList.remove(Integer.valueOf(element));
-        System.out.println("Element removed successfully");
-    }
-
-    private static void replaceElement(ArrayList<Integer> arrayList, Scanner scr) {
-        System.out.println("Enter the index of element to replace: ");
-        int index = scr.nextInt();
-        System.out.println("Enter the new element: ");
-        int element = scr.nextInt();
-        arrayList.set(index, element);
-        System.out.println("Element replaced successfully");
-    }
-
-    private static void displayElement(ArrayList<Integer> arrayList, Scanner scr) {
-        System.out.println("Elements in the array List: ");
-        arrayList.forEach((element) -> {
-            System.out.println(element + " ");
-        });
-        System.out.println();
-    }
-
-    private static void addElementBetween(ArrayList<Integer> arrayList, Scanner scr) {
-        System.out.println("Elements in the index after which the element to add: ");
-        int index = scr.nextInt();
-        System.out.println("Enter the element to add: ");
-        int element = scr.nextInt();
-        arrayList.add(index + 1, element);
-        System.out.println("Element added Successfully");
     }
 }

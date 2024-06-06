@@ -1,26 +1,27 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package parta4;
+
+import java.util.*;
 
 /**
  *
  * @author mayur
  */
-import java.util.Scanner;
-
 public class PartA4 {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter a string:");
-        String input = sc.nextLine();
+        String input = scanner.nextLine();
         String swappedString = swapPairsInEvenWords(input);
         System.out.println("Swapped string: " + swappedString);
         String toggledString = toggleCharacters(input);
         System.out.println("Toggled string: " + toggledString);
-        sc.close();
+        scanner.close();
     }
 
     public static String swapPairsInEvenWords(String input) {

@@ -1,5 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package parta1;
 
@@ -11,12 +13,12 @@ import java.util.Scanner;
  */
 public class PartA1 {
 
-    private enum units {
-        Zero(""), ONE("ONE"), TWO("TWO"), THREE("THREE"), FOUR("FOUR"), FIVE("FIVE"), SIX("SIX"), SEVEN("SEVEN"), EIGHT("EIGHT"), NINE("NINE");
-
+    private enum Units {
+        ZERO(""), ONE("ONE"), TWO("TWO"), THREE("THREE"), FOUR("FOUR"), FIVE("FIVE"), SIX("SIX"),
+        SEVEN("SEVEN"), EIGHT("EIGHT"), NINE("NINE");
         private final String word;
 
-        units(String word) {
+        Units(String word) {
             this.word = word;
         }
 
@@ -25,13 +27,14 @@ public class PartA1 {
         }
     }
 
-    public enum teens {
-        TEN("TEN"), ELEVEN("ELEVEN"), TWELVE("TWELVE"), THIRTEEN("THIRTEEN"), FOURTEEN("FOURTEEN"), FIFTEEN("FIFTEEN"), SIXTEEN("SIXTEEN"),
-        SEVENTEEN("SEVENTEEN"), EIGHTEEN("EIGHTEEN"), NINETEEN("NINETEEN");
-
+    private enum Teens {
+        TEN("TEN"), ELEVEN("ELEVEN"), TWELVE("TWELVE"), THIRTEEN("THIRTEEN"),
+        FOURTEEN("FOURTEEN"),
+        FIFTEEN("FIFTEEN"), SIXTEEN("SIXTEEN"), SEVENTEEN("SEVENTEEN"), EIGHTEEN("EIGHTEEN"),
+        NINETEEN("NINETEEN");
         private final String word;
 
-        teens(String word) {
+        Teens(String word) {
             this.word = word;
         }
 
@@ -40,12 +43,12 @@ public class PartA1 {
         }
     }
 
-    public enum tens {
-        TWENTY("TWENTY"), THIRTY("THIRTY"), FOURTY("FOURTY"), FIFTY("FIFTY"), SIXTY("SIXTY"), SEVENTY("SEVENTY"), EIGHTY("EIGHTY"), NINETY("NINETY");
-
+    private enum Tens {
+        TWENTY("TWENTY"), THIRTY("THIRTY"), FORTY("FORTY"), FIFTY("FIFTY"), SIXTY("SIXTY"),
+        SEVENTY("SEVENTY"), EIGHTY("EIGHTY"), NINETY("NINETY");
         private final String word;
 
-        tens(String word) {
+        Tens(String word) {
             this.word = word;
         }
 
@@ -65,35 +68,28 @@ public class PartA1 {
         if (number == 0) {
             return "ZERO";
         }
-
         if (number < 0 || number > 99999) {
             return "Number out of range";
         }
-
         String word = "";
         if (number / 1000 > 0) {
             word += convertToWords(number / 1000) + " THOUSAND ";
             number %= 1000;
         }
-
         if (number / 100 > 0) {
-            word += units.values()[number / 100].getWord() + " HUNDRED ";
+            word += Units.values()[number / 100].getWord() + " HUNDRED ";
             number %= 100;
         }
-
         if (number >= 20) {
-            word += tens.values()[(number / 10) - 2].getWord() + " ";
+            word += Tens.values()[(number / 10) - 2].getWord() + " ";
             number %= 10;
         } else if (number >= 10) {
-            word += teens.values()[number - 10].getWord() + " ";
+            word += Teens.values()[number - 10].getWord() + " ";
             number = 0;
         }
-
         if (number > 0) {
-            word += units.values()[number].getWord();
+            word += Units.values()[number].getWord();
         }
-
         return word.trim();
     }
-
 }
