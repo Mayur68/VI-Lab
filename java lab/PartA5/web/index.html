@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Voting Eligibility Test</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            table{
+                background-color: aqua;
+                width: 200px;
+                margin-top: 100px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            td{
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="CheckVoter" method="post">
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" name="uname"></td>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td><input type="number" name="age"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Check Voting Eligibility"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
