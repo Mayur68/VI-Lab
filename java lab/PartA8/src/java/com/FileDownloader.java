@@ -38,7 +38,7 @@ public class FileDownloader extends HttpServlet {
         response.setContentType("text/plaintext");
         response.setHeader("Content-Disposition", "attachment;filename=\"" + fname + "\"");
         OutputStream os = response.getOutputStream();
-        FileInputStream fis = new FileInputStream("c:\\BCA3\\mycv.txt");
+        FileInputStream fis = new FileInputStream("D:txt.txt");
         int i = 0;
         while ((i = fis.read()) != -1) {
             os.write(i);
