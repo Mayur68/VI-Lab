@@ -63,7 +63,7 @@ public class studentmodel {
     }
 
     public String getResult() {
-        String result = "";
+        String result;
         if (m1 < 35 || m2 < 35 || m3 < 35) {
             result = "Fail";
         } else {
@@ -85,7 +85,7 @@ public class studentmodel {
 
     String getGrade() {
         double per = ((m1 + m2 + m3) / 3);
-        String grade = "";
+        String grade;
         if (per >= 90) {
             grade = "A";
         } else if (per >= 80) {

@@ -13,15 +13,13 @@
             for (i = 2; i < 10; i++) {
                 c = a + b;
                 out.println(c + "&nbsp &nbsp");
-                int next = a + b;
                 a = b;
                 b = c;
             }
-
-
         %>
         <h4>Prime Number</h4>
-        <%     int pn = 2, count = 1;
+        <%    
+            int pn = 2, count = 1;
             boolean isprime = true;
             while (count <= 10) {
                 isprime = true;
@@ -36,7 +34,6 @@
                     count++;
                 }
                 pn++;
-
             }
         %>
     </body>

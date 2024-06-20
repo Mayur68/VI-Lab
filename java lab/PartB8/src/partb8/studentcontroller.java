@@ -11,8 +11,8 @@ package partb8;
  */
 public class studentcontroller {
 
-    private studentmodel model;
-    private studentview view;
+    private final studentmodel model;
+    private final studentview view;
 
     public studentcontroller(studentmodel model, studentview view) {
         this.model = model;

@@ -9,22 +9,19 @@ package partb3;
  *
  * @author mayur
  */
+import java.rmi.*;
 import java.util.*;
 import java.rmi.registry.*;
 
 public class TaxClient {
 
-    public static void main(String args[]) {
-        try {
-            double d;
-            Scanner sc = new Scanner(System.in);
-            Registry reg = LocateRegistry.getRegistry(18888);
-            tax t = (tax) reg.lookup("TaxServer");
-            System.out.println("Enter the Income:");
-            d = sc.nextDouble();
-            System.out.println("The calculated tax amount is=" + t.calTax(d));
-        } catch (Exception e) {
-            System.out.println("Exception in Client.....");
-        }
+    public static void main(String args[]) throws RemoteException, NotBoundException {
+        double d;
+        Scanner sc = new Scanner(System.in);
+        Registry reg = LocateRegistry.getRegistry(18888);
+        tax t = (tax) reg.lookup("TaxServer");
+        System.out.println("Enter the Income:");
+        d = sc.nextDouble();
+        System.out.println("The calculated tax amount is=" + t.calTax(d));
     }
 }
